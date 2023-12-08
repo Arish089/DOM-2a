@@ -17,12 +17,14 @@
         #screen{
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
             border: 2px solid whitesmoke;
-            color: white;
+            color:black;
             border-radius: 12px;
             height: 60px;
             width: 75%;
             margin-top: 45px;
             margin-left: 45px;
+            font-size: 20px;
+            font-weight: 600;
             
             }
             #keypad{
@@ -36,7 +38,8 @@
                 gap: 5px 5px;
                 font-weight:bolder;
             }
-            #keypad > div{
+            #keypad > button{
+                background-color: #ffff;
                 box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
                 display: flex;
                 flex-direction: column;
@@ -49,15 +52,15 @@
                 padding-top: 23px;
                 font-size: 20px;
                 }
-                #keypad>div:nth-child(13){
+                #keypad>button:nth-child(13){
                     background-color: orangered;
                     color: white;
                 }
-                #keypad >div:nth-child(4),
-                #keypad >div:nth-child(8),
-                #keypad >div:nth-child(12),
-                #keypad >div:nth-child(15),
-                #keypad >div:nth-child(16){
+                #keypad>.operator{
+                    background-color: black;
+                    color: white;
+                }
+                #keypad>.submit{
                     background-color: black;
                     color: white;
                 }
@@ -66,27 +69,90 @@
 </head>
 <body>
     <h1 style="color: rgb(41, 128, 131); text-align: center;font-size: 48px;">Masai Calculator</h1><br><br>
+    <form id="myForm">
     <div id="outer">
-    <div id="screen">2ibqefayu gjgfcg ctgcgch sDJBnb kdhwqvbdhj  h</div>
+    <div id="screen"></div>
     <div id="keypad">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>+</div>
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>-</div>
-        <div>7</div>
-        <div>8</div>
-        <div>9</div>
-        <div>x</div>
-        <div>C</div>
-        <div>0</div>
-        <div>=</div>
-        <div>/</div>
+        <button class="no">1</button>
+        <button class="no">2</button>
+        <button class="no">3</button>
+       <button class="operator">+</button>
+        <button class="no">4</button>
+        <button class="no">5</button>
+        <button class="no">6</button>
+        <button class="operator">-</button>
+        <button class="no">7</button>
+        <button class="no">8</button>
+        <button class="no">9</button>
+        <button class="operator">x</button>
+        <button class="clear">C</button>
+        <button class="no">0</button>
+        <button class="submit">=</button>
+        <button class="operator">/</button>
     </div>
 </div>
+    </form><script>
+        let myForm = document.querySelector('form');
+        console.log(myForm.innerHTML)
+;    let Screen = document.getElementById("screen");
+    let Keypad = document.querySelectorAll('#keypad>.no');
+    let reset = document.querySelector('#keypad > .clear')
+    let Operator = document.querySelectorAll('#keypad>.operator');
+    let equal = document.querySelector('#keypad>.submit');
+    let firstno = "";
+    let Isfirst = true;
+    let secondno = "";
+    let opt ="";
+    for(let i = 0; i<Keypad.length ; i++){
+         Keypad[i].addEventListener('click',function(e)
+         {
+            e.preventDefault();
+            if(Isfirst == true){
+                firstno += Keypad[i].innerText;
+                Screen.innerText = firstno;
+            }else{
+                secondno += Keypad[i].innerText;
+                Screen.innerText = secondno;
+            }
+         })
+    }
+    for(let i = 0; i <Operator.length; i++){
+        Operator[i].addEventListener('click',function(e)
+        {
+            e.preventDefault();
+            Isfirst = false;
+            opt = Operator[i].innerText;
+        })
+    }
+    function calc(firstno,secondno,opt){
+        switch(opt){
+            case "+":
+                return Number(firstno) + Number(secondno);
+
+            case "-":
+                return Number(firstno) - Number(secondno);
+
+            case "x":
+                return firstno * secondno;
+
+            case "/":
+                return firstno / secondno;
+        }
+    }
+       equal.addEventListener('click',function(e)
+       {
+        e.preventDefault();
+        Screen.innerText = calc(firstno,secondno,opt);
+        
+       })
+
+       reset.addEventListener('click',function()
+       {
+        myForm.reset();
+        
+       })
+
+</script>
     
 </body>
 </html>
