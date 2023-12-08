@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     
+    <title>Document</title>
+    <Style>
+        #outer{
+            border: 3px outset whitesmoke;
+            display: flex;
+            flex-direction: column;
+            width: 25%;
+            height: 450px;
+            margin: auto;
+            
+        }
+        #screen{
+            border: 2px outset whitesmoke;
+            color: white;
+            border-radius: 12px;
+            height: 60px;
+            width: 75%;
+            margin-top: 45px;
+            margin-left: 45px;
+            
+            }
+            #keypad{
+                display:grid;
+                width: 75%;
+                height: 280px;
+                grid-template-columns: repeat(4,1fr);
+                grid-template-rows: auto;
+                margin-left: 47px;
+                margin-top: 10px;
+                gap: 5px 5px;
+                font-weight:bolder;
+            }
+            #keypad > div{
+                display: flex;
+                flex-direction: column;
+                border: 2px solid whitesmoke;
+                border-style: outset;
+                /**
+                    background-color: blueviolet;
+                */
+                border-radius: 12px;
+                align-items: center;
+                padding-top: 23px;
+                font-size: 20px;
+                }
+                #keypad>div:nth-child(13){
+                    background-color: orangered;
+                    color: white;
+                }
+                #keypad >div:nth-child(4),
+                #keypad >div:nth-child(8),
+                #keypad >div:nth-child(12),
+                #keypad >div:nth-child(15),
+                #keypad >div:nth-child(16){
+                    background-color: black;
+                    color: white;
+                }
+                    
+        </Style>
+</head>
+<body>
+    <h1 style="color: rgb(41, 128, 131); text-align: center;font-size: 48px;">Masai Calculator</h1><br><br>
+    <div id="outer">
+    <div id="screen">2ibqefayu gjgfcg ctgcgch sDJBnb kdhwqvbdhj  h</div>
+    <div id="keypad">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>+</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>-</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>x</div>
+        <div>C</div>
+        <div>0</div>
+        <div>=</div>
+        <div>/</div>
+    </div>
+</div>
+    
+</body>
+</html>
