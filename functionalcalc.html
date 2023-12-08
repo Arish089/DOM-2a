@@ -5,16 +5,18 @@
     <title>Document</title>
     <Style>
         #outer{
-            border: 3px outset whitesmoke;
+            border: 3px solid whitesmoke;
             display: flex;
             flex-direction: column;
             width: 25%;
             height: 450px;
             margin: auto;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
             
         }
         #screen{
-            border: 2px outset whitesmoke;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            border: 2px solid whitesmoke;
             color: white;
             border-radius: 12px;
             height: 60px;
@@ -35,10 +37,10 @@
                 font-weight:bolder;
             }
             #keypad > div{
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
                 display: flex;
                 flex-direction: column;
                 border: 2px solid whitesmoke;
-                border-style: outset;
                 /**
                     background-color: blueviolet;
                 */
